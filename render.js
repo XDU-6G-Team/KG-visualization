@@ -34,8 +34,8 @@ class WindowManager {
                 "id": "resolved",
                 "markerUnits": "userSpaceOnUse",
                 "viewBox": "0 -5 10 10",
-                "refX": 20,
-                "refY": -1,
+                "refX": 25,
+                "refY": 0,
                 "markerWidth": 10,
                 "markerHeight": 10,
                 "orient": "auto",
@@ -49,10 +49,10 @@ class WindowManager {
         
         this.forceNodes = this.force.nodes();
         this.forceLinks = this.force.links();
-        this.svgNodes = this.svg.append("g").attr({"id": "nodes"}).selectAll(".nodes");
-        this.svgLinks = this.svg.append("g").attr({"id": "links"}).selectAll(".links");
         this.svgNodesText = this.svg.append("g").attr({"id": "nodes_text"}).selectAll(".nodes_text");
         this.svgLinksText = this.svg.append("g").attr({"id": "links_text"}).selectAll(".links_text");
+        this.svgLinks = this.svg.append("g").attr({"id": "links"}).selectAll(".links");
+        this.svgNodes = this.svg.append("g").attr({"id": "nodes"}).selectAll(".nodes");
     }
 
     render() {
