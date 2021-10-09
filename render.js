@@ -11,13 +11,13 @@ class Node {
 
 class WindowManager {
     constructor() {
-        this.reset();
     }
 
     reset() {
         this.windowWidth = window.innerWidth;
         this.windowHeight = window.innerHeight;
         d3.select("svg").remove();
+        d3.select('#wordCloud').remove();
         this.svg = d3.select("body")
             .append("svg")
             .attr({
@@ -190,7 +190,28 @@ class WindowManager {
 }
 
 let windowManager = new WindowManager()
-windowManager.addNodes([
-    new Node("6G slicing network", windowManager.windowWidth/2 + 10, windowManager.windowHeight/2, 0),
-    new Node("Metric", windowManager.windowWidth/2 - 10, windowManager.windowHeight/2, 0)
-]);
+
+const myTags = [
+    '6G slicing network', 'TraN(6G)', 'CoreN(6G)',
+    'Service/User/VN/Slice', 'RAN(6G)', 'Required Wireless Resource',
+    'Required Wired Resource', 'Routers', 'Switches',
+    'Nodes', 'Links', 'Macro BS',
+    "Wireless Equipment", "Node Resource", "Functions",
+    "Node Attributes", "CPU", "Storage", "Capacity"
+];
+var tagCloud = TagCloud('.content', myTags,{
+    radius: 400,
+    maxSpeed: 'normal',
+    initSpeed: 'normal',
+    direction: 135,
+    keep: true
+});
+let rootEl = document.querySelector('.content');
+rootEl.addEventListener('click', function clickEventHandler(e) {
+    if (e.target.className === 'tagcloud--item') {
+        windowManager.reset()
+        windowManager.addNodes([
+            new Node(e.target.innerText, windowManager.windowWidth/2, windowManager.windowHeight/2, 0)
+        ])
+    }
+});
