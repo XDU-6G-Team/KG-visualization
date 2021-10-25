@@ -85,31 +85,72 @@
 //     return result;
 // }
 
-var driver = neo4j.driver(
+///////////////////////////////////////////////////////////////////////////////////////
+
+// var driver = neo4j.driver(
+//     'neo4j+s://f4691fe3.databases.neo4j.io',
+//     neo4j.auth.basic('neo4j', '2xfX6T2NNdsRwJZsyPkj1Eff8_IpE7FHUH-XvYNB1b8')
+// );
+
+// function getSubGraph(nodeName) {
+//     let queryCommand = 'match (s:Node {msg: "' + nodeName + '"})-[l]->(t) return l,t';
+//     let result = [];
+//     let session = driver.session();
+//     session.run(queryCommand)
+//         .subscribe({
+//             onNext: record => {
+//                 result.push({
+//                     source: nodeName,
+//                     target: record._fields[record._fieldLookup['t']].properties.msg,
+//                     rela: record._fields[record._fieldLookup['l']].type,
+//                     type: "resolved"
+//                 })
+//             },
+//             onCompleted: () => {
+//                 session.close()
+//             },
+//             onError: error => {
+//                 console.log(error)
+//             }
+//         })
+//     return result;
+// }
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+const driver = neo4j.driver(
     'neo4j+s://f4691fe3.databases.neo4j.io',
     neo4j.auth.basic('neo4j', '2xfX6T2NNdsRwJZsyPkj1Eff8_IpE7FHUH-XvYNB1b8')
 );
+try {
+    driver.verifyConnectivity()
+    console.log('Driver created')
+} catch (error) {
+    console.log(`connectivity verification failed. ${error}`)
+}
 
 function getSubGraph(nodeName) {
     let queryCommand = 'match (s:Node {msg: "' + nodeName + '"})-[l]->(t) return l,t';
     let result = [];
-    let session = driver.session();
+    const session = driver.session()
+    console.log(`${nodeName} quering ...`)
     session.run(queryCommand)
-        .subscribe({
-            onNext: record => {
-                result.push({
-                    source: nodeName,
-                    target: record._fields[record._fieldLookup['t']].properties.msg,
-                    rela: record._fields[record._fieldLookup['l']].type,
-                    type: "resolved"
-                })
-            },
-            onCompleted: () => {
-                session.close()
-            },
-            onError: error => {
-                console.log(error)
-            }
-        })
+    .subscribe({
+        onNext: record => {
+            result.push({
+                source: nodeName,
+                target: record._fields[record._fieldLookup['t']].properties.msg,
+                rela: record._fields[record._fieldLookup['l']].type,
+                type: "resolved"
+            })
+        },
+        onCompleted: () => {
+            session.close()
+        },
+        onError: error => {
+            console.log(error)
+        }
+    })
+    console.log(`${nodeName} query end ...`)
     return result;
 }
