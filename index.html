@@ -20,9 +20,10 @@
         height: 40px;
         border-radius: 18px;
         outline: none;
-        border: 1px solid #ccc;
+        border: 1px solid #aaa;
         padding-left: 20px;
         position: absolute;
+        font-size: 18px;
     }
     .button {
         height: 35px;
@@ -40,6 +41,31 @@
         outline: none;
         cursor: pointer;
     }
+    .content {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    .tagcloud {
+        font-size: 18px;
+    }
+    .tagcloud--item {
+        padding: 2px 4px;
+        background-color: transparent;
+        border: 1px solid transparent;
+        cursor: pointer;
+        color: #555;
+    }
+    .tagcloud--item:hover {
+        background-color: rgba(0,0,0,0);
+        border: 1px solid #555;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        opacity: 1 !important;
+        z-index: 100 !important;
+    }
 </style>
 </head>
 <body>
@@ -52,8 +78,12 @@
     </form>
 </div>
 
+<div style="position: relative" id="wordCloud">
+    <div class="content"></div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/neo4j-driver-lite@4.3.3/lib/browser/neo4j-lite-web.min.js"></script>
 <script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="TagCloud.min.js"></script>
 <script src="graph.js"></script>
 <script src="render.js"></script>
 <script src="callbacks.js"></script>
