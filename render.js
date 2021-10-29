@@ -192,12 +192,12 @@ class WindowManager {
 let windowManager = new WindowManager()
 
 const myTags = [
-    '6G slicing network', 'TraN(6G)', 'CoreN(6G)',
-    'Service/User/VN/Slice', 'RAN(6G)', 'Required Wireless Resource',
-    'Required Wired Resource', 'Routers', 'Switches',
-    'Nodes', 'Links', 'Macro BS',
-    "Wireless Equipment", "Node Resource", "Functions",
-    "Node Attributes", "CPU", "Storage", "Capacity"
+    'BSS', 'hardware', 'core network',
+    'big data', 'reliability', 'energy efficiency',
+    'detection', 'deployment', 'V2X',
+    'SBA', 'node', 'coding',
+    "Cloud VR", "SDN controllers", "technology",
+    "Network slicing", "demand", "C-V2X", "network slicing"
 ];
 var tagCloud = TagCloud('.content', myTags,{
     radius: 400,

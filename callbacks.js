@@ -10,8 +10,7 @@ function searchButtonOnClick() {
     windowManager.reset();
     if (rootName === "") {
         windowManager.addNodes([
-            new Node("6G slicing network", windowManager.windowWidth/2 + 10, windowManager.windowHeight/2, 0),
-            new Node("Metric", windowManager.windowWidth/2 - 10, windowManager.windowHeight/2, 0)
+            new Node("6G", windowManager.windowWidth/2, windowManager.windowHeight/2, 0)
         ]);
     } else {
         windowManager.addNodes([
