@@ -135,13 +135,14 @@ class WindowManager {
             return "M " + d.source.x + " " + d.source.y + " L " + d.target.x + " " + d.target.y;
         })
         this.svgLinksText.attr("transform", function(d) {
-            if (d.target.x < d.source.x) {
-                let bbox = this.getBBox();
-                let rx = bbox.x + bbox.width / 2, ry = bbox.y + bbox.height / 2;
-                return "rotate(180 " + rx + " " + ry + ")";
-            } else {
-                return "rotate(0)";
-            }
+            // if (d.target.x < d.source.x) {
+            //     let bbox = this.getBBox();
+            //     let rx = bbox.x + bbox.width / 2, ry = bbox.y + bbox.height / 2;
+            //     return "rotate(180 " + rx + " " + ry + ")";
+            // } else {
+            //     return "rotate(0)";
+            // }
+            return "rotate(0)";
         });
     }
 
@@ -198,12 +199,15 @@ class WindowManager {
 let windowManager = new WindowManager()
 
 const myTags = [
+    "CF massive MIMO",
+    "AP", "distributed antenna systems", "CoMP with joint transmission",
+    "HAP-MIMO channel", "beyond 5G and future 6G communication systems", "DEN",
     'BSS', 'hardware', 'core network',
     'big data', 'reliability', 'energy efficiency',
     'detection', 'deployment', 'V2X',
     'SBA', 'node', 'coding',
     "Cloud VR", "SDN controllers", "technology",
-    "Network slicing", "demand", "C-V2X", "network slicing"
+    "Network slicing", "demand", "C-V2X", "network slicing", 
 ];
 var tagCloud = TagCloud('.content', myTags,{
     radius: 400,
