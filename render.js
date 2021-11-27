@@ -64,10 +64,16 @@ class WindowManager {
                 "marker-end": "url(#resolved)"
             })
             .style({
-                "stroke": "#B43232",
                 "stroke-width": 0.5
             });
-        this.svgLinks.attr("d", function(d) { return "M " + d.source.x + " " + d.source.y + " L " + d.target.x + " " + d.target.y; });
+        this.svgLinks.attr("d", function(d) { return "M " + d.source.x + " " + d.source.y + " L " + d.target.x + " " + d.target.y; })
+            .style("stroke", function(d) {
+                if (d.type == 'resolved') {
+                    return "#B43232"
+                } else {
+                    return "#385723"
+                }
+            });
 
         this.svgLinksText = this.svgLinksText.data(this.forceLinks);
         this.svgLinksText.exit().remove();
@@ -162,7 +168,7 @@ class WindowManager {
                         return false;
                     }).length;
                     if (linkAddedFlag == 0) {
-                        this.forceLinks.push({source: d, target: node, rela: relation.rela, type: "resolved"});
+                        this.forceLinks.push({source: d, target: node, rela: relation.rela, type: relation.type});
                     }
                     addFlag = true;
                 }
@@ -170,7 +176,7 @@ class WindowManager {
             if (!addFlag) {
                 let newNode = new Node(relation.target, d.x + Math.random() * 20 - 10, d.y + Math.random() * 20 - 10, d.level + 1);
                 this.forceNodes.push(newNode)
-                this.forceLinks.push({source: d, target: newNode, rela: relation.rela, type: "resolved"});
+                this.forceLinks.push({source: d, target: newNode, rela: relation.rela, type: relation.type});
             }
         }
         this.render();
