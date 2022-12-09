@@ -199,15 +199,23 @@ class WindowManager {
 let windowManager = new WindowManager()
 
 const myTags = [
-    "CF massive MIMO",
-    "AP", "distributed antenna systems", "CoMP with joint transmission",
-    "HAP-MIMO channel", "beyond 5G and future 6G communication systems", "DEN",
-    'BSS', 'hardware', 'core network',
-    'big data', 'reliability', 'energy efficiency',
-    'detection', 'deployment', 'V2X',
-    'SBA', 'node', 'coding',
-    "Cloud VR", "SDN controllers", "technology",
-    "Network slicing", "demand", "C-V2X", "network slicing", 
+    "Tactile and multi-modality communication",
+    "Mobile Communication System for Railways",
+    "immersive multi-modal VR applications",
+    "Remote control robot",
+    "Immersive VR games",
+    "Voice communication for operational purposes",
+    "Critical video communication for observation purposes",
+    "Standard data communication",
+    "Critical data communication",
+    "Very critical data communication",
+    "Messaging",
+    "Service for rail-bound mass transit",
+    "Train coupling",
+    "E2E latency(max)",
+    "service bit rate",
+    "Reliability",
+    "communication service availability"
 ];
 var tagCloud = TagCloud('.content', myTags,{
     radius: 400,
