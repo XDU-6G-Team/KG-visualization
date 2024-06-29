@@ -215,7 +215,12 @@ const myTags = [
     "E2E latency(max)",
     "service bit rate",
     "Reliability",
-    "communication service availability"
+    "communication service availability",
+    "UAV",
+    "Internet of Vehicles",
+    "human-thing intelligence",
+    "machine",
+    "Sensor Network",
 ];
 var tagCloud = TagCloud('.content', myTags,{
     radius: 400,
