@@ -125,7 +125,7 @@ let graphData = [{"source": "Tactile and multi-modality communication", "target"
     {"source": "environment", "target": "ports and harbors", "rela": "include", "type": "resolved"},
     {"source": "environment", "target": "stadiums", "rela": "include", "type": "resolved"},
     {"source": "environment", "target": "shopping malls", "rela": "include", "type": "resolved"},
-    {"source": "environment", "target": "university campuses", "rela": "include", "type": "resolved"}
+    {"source": "environment", "target": "university campuses", "rela": "include", "type": "resolved"},
     {"source": "indoor", "target": "Wi-Fi coverage", "rela": "include", "type": "resolved"},
     {"source": "indoor", "target": "Bluetooth connectivity", "rela": "include", "type": "resolved"},
     {"source": "indoor", "target": "small cell deployment", "rela": "include", "type": "resolved"},
