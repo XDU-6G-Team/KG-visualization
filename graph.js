@@ -406,7 +406,6 @@ let graphData = [{"source": "Tactile and multi-modality communication", "target"
     {"source": "security requirements", "target": "Trusted processing", "rela": "facilitate", "type": "resolved"},
     {"source": "security requirements", "target": "Safe and open", "rela": "provide", "type": "resolved"},
 
-    {"source":"environment", "target":"Wide area environmental monitoring", "rela":"serve as", "type":"resolved"},
     {"source":"resource", "target":"Distributed data management", "rela":"serve as", "type":"resolved"},
     {"source":"resource", "target":"multi-node joint reasoning", "rela":"serve as", "type":"resolved"},
     {"source":"resource", "target":"endogenous network intelligence", "rela":"serve as", "type":"resolved"},
